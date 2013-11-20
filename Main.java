@@ -57,7 +57,7 @@ public class Main {
 
                 if(chosen < 6 && chosen >= 0) {
                     p2.select(chosen);
-                    System.out.println("Target: " + p1.getTarget());
+                    System.out.println("Target: " + p2.getTarget());
 
                     chosen = 0;
                     p2.setTurn(false);
@@ -71,5 +71,12 @@ public class Main {
         }
 
         System.out.println("GAME OVER");
+    }
+
+    public static void move(Player p, int init, int beanNum) {
+
+        /******** This method handles all moves made by players
+         *        and deploys appropriate number of seeds to each of the houses and stores. *********/
+
     }
 }
