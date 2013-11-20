@@ -16,16 +16,12 @@ public class House {
         this.beanNum = i;
     }
 
-    public void addBeans(int i) {
-        this.beanNum += i;
+    public void addBean() {
+        this.beanNum += 1;
     }
 
-    public void rmBeans(int i) {
-        if (i <= this.beanNum) {
-            this.beanNum -= i;
-        } else {
-            System.out.println("Illegal argument.");
-        }
+    public void rmBeans() {
+        this.beanNum = 0;
     }
 
     public int getBeanNum() {
