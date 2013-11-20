@@ -13,13 +13,15 @@ public class Player {
         this.id     = i;
         this.houses = new ArrayList<House>();
         this.turn   = false;
+        this.target = 0;
 
-        House h1 = new House(0, 4);
-        House h2 = new House(1, 4);
-        House h3 = new House(2, 4);
-        House h4 = new House(3, 4);
-        House h5 = new House(4, 4);
-        House h6 = new House(5, 4);
+        House h1    = new House(0, 4);
+        House h2    = new House(1, 4);
+        House h3    = new House(2, 4);
+        House h4    = new House(3, 4);
+        House h5    = new House(4, 4);
+        House h6    = new House(5, 4);
+        House store = new House(6, 0);
 
         this.houses.add(h1);
         this.houses.add(h2);
@@ -27,6 +29,7 @@ public class Player {
         this.houses.add(h4);
         this.houses.add(h5);
         this.houses.add(h6);
+        this.houses.add(store);
     }
 
     public void setTurn(boolean b) {
@@ -44,5 +47,9 @@ public class Player {
 
     public int getTarget() {
         return this.target;
+    }
+
+    public House getHouse(int i) {
+        return this.houses.get(i);
     }
 }
