@@ -1,5 +1,3 @@
-package Kalah;
-
 public class House {
 
     private int id;
