@@ -1,0 +1,8 @@
+Introduction to AI
+End of Term Exercise
+1. Overview of the program
+The purpose of the program is to create the board game kalah. We have decided to implement this using the Java programming language.
+//Game Structure
+The program is made up of a Player class and a main method. The player class is used to represent the 2 players, it has 3 data fields which consist of a Boolean named turn to determine whose turn it is to play, an integer for chosen position and an integer for target position on the board. The constructor initializes the data fields, turn is set to false chosen and target are set to 0. There are get and set methods for each data field.
+//How players make decisions
+// Results of 1000 games. 
