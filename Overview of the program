@@ -8,9 +8,13 @@ The purpose of the program is to create the board game kalah. We have decided to
 
 //Game Structure
 
-The program is made up of a Player class and a main method.
-The player class is used to represent the 2 players, it has 3 data fields which consist of a Boolean named turn to determine whose turn it is to play, an integer for chosen position and an integer for target position on the board. The constructor initializes the data fields, turn is set to false chosen and target are set to 0. There are get and set methods for each data field.
+The kalah program is made up of a player class and a main method.
+
+The player class is used to represent the 2 players, it has 3 data fields which consist of a Boolean named 'turn' which determines the turn of a player , an integer for 'chosen' position and an integer for 'target' position on the board. The constructor initializes the data fields, 'turn' is set to false 'chosen' and 'target' are set to 0. There are get and set methods for each data field.
+
+The main class deals with the core game, it has 4 data fields, a Boolean named 'gameover' which controls when the game finishes, an integer array named 'board' which holds the houses and stores and 2 integer data fields named 'beanSumP1' and 'beanSumP2' which counts the number of beans in the houses of each respective player. Boolean 'gameover' is inittially set to false, the 'board' array consists of 14 elements, 12 for the houses and 2 for each players store. The sum of the players houses are set to 0, a loop is used to go through the array filling each house with 4 and leaving the stores empty.
+
 
 //How players make decisions
 
-// Results of 1000 games. 
+// Results of 1000 games.
