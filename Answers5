@@ -1,0 +1,66 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+ 
+/**
+ *
+ * @author administrator
+ */
+import java.util.Scanner;  // imports just the Scanner class from java.util
+ 
+public class CalaMain {
+ 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        int counter = 2;
+        Board b = new Board();
+        b.drawBoard();
+ 
+        while (b.isOver() == false) {
+            Scanner scan = new Scanner(System.in);
+            if (counter % 2 == 0) {
+ 
+                System.out.println("Enter a position, player 1");
+ 
+                String scanned = scan.next();
+ 
+ 
+ 
+                b.movethem(scanned);
+ 
+ 
+                while (b.hmz()==true) {
+                    System.out.println("Enter a position, again player 1");
+                    System.out.println("HE SHOULD BE GOING AGAIN");
+                    scanned = scan.next();
+                    b.movethem(scanned);
+                   // b.drawBoard();
+                     
+                }
+                counter = counter + 1;
+                System.out.println(b.hmz());
+            }
+ 
+ 
+            if (counter % 2 != 0) {
+ 
+                System.out.println("Enter a position, player 2");
+                String scanned = scan.next();
+                b.movethem(scanned);
+                while(b.hmz2()==true) {
+                    System.out.println("Enter a position, again player 2");
+                    scanned = scan.next();
+                    b.movethem(scanned);
+                }
+                counter = counter + 1;
+            }
+ 
+ 
+ 
+        }
+ 
+    }
+}
