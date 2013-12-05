@@ -1,0 +1,24 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+ 
+/**
+ *
+ * @author administrator
+ */
+public class Storage {
+    int howmany = 4;
+    public Storage(int number) {
+        howmany=number;
+    }
+ 
+    public int getAmount() {
+        return howmany;
+    }
+    public void setAmount(int amount) {
+        howmany=amount;
+    }
+ 
+ 
+}
