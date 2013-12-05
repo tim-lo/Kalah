@@ -1,0 +1,41 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+ 
+/**
+ *
+ * @author administrator
+ */
+public class ManCalaTreeNode {
+     ManCalaTreeNode parent;
+    ManCalaTreeNode[] children;
+    int depth;
+    Board gameState;
+ 
+ 
+ 
+    /* Object element;
+     ManCalaTreeNode left, right;
+ 
+    ManCalaTreeNode(Object obj) {
+        element = obj;
+        left = null;
+        right = null;
+    }
+ 
+    public int numChildren() {
+        int children=0;
+        if(left !=null) {
+            children=1+left.numChildren();
+        }
+ 
+        if(right!=null) {
+            children=children+1+right.numChildren();
+        }
+            return children;
+    }
+ 
+     */
+  
+}
