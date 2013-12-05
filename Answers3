@@ -1,0 +1,352 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+ 
+/**
+ *
+ * @author administrator
+ */
+public class Board {
+ 
+    Storage[] board = new Storage[14];
+    Storage b = new Storage(4);
+    int positionreal = 0;
+    int positionreal2 = 0;
+    int counter = 2;
+    int counter2 = 0;
+    boolean hmm = false;
+    boolean hmm2 = false;
+    int counter3 = 0;
+    int temporary = 0;
+    int temporary2= 0;
+    boolean player1hasalot = false;
+    boolean player2hasalot=false;
+ 
+ 
+    public Board() {
+        board[0] = new Storage(4);
+        board[1] = new Storage(4);
+        board[2] = new Storage(4);
+        board[3] = new Storage(4);
+        board[4] = new Storage(4);
+        board[5] = new Storage(4);
+        board[6] = new Storage(0);
+        board[7] = new Storage(4);
+        board[8] = new Storage(4);
+        board[9] = new Storage(4);
+        board[10] = new Storage(4);
+        board[11] = new Storage(4);
+        board[12] = new Storage(4);
+        board[13] = new Storage(0);
+ 
+ 
+    }
+ 
+    public void movethem(String l) {
+ 
+        positionreal = Integer.parseInt(l);
+         
+        if (counter % 2 == 0) {
+ 
+ 
+ 
+            while (counter % 2 == 0) {
+ 
+ 
+            /*    for(int forever=0; forever<board[positionreal].getAmount(); forever++) {
+                    if(board[positionreal].getAmount()-forever==1) {
+ 
+                    }
+                }
+            */
+                if(positionreal+board[positionreal].getAmount() <6) {
+                       if(board[positionreal+board[positionreal].getAmount()].getAmount()==0) {
+ 
+                           if(positionreal+board[positionreal].getAmount()==0) {
+                               board[6].setAmount(board[12].getAmount());
+                               board[12].setAmount(0);
+                           }
+                            if(positionreal+board[positionreal].getAmount()==1) {
+                               board[6].setAmount(board[11].getAmount());
+                               board[11].setAmount(0);
+                           }
+                            if(positionreal+board[positionreal].getAmount()==2) {
+                               board[6].setAmount(board[10].getAmount());
+                               board[10].setAmount(0);
+                           } if(positionreal+board[positionreal].getAmount()==3) {
+                               board[6].setAmount(board[9].getAmount());
+                               board[9].setAmount(0);
+                           } if(positionreal+board[positionreal].getAmount()==4) {
+                               board[6].setAmount(board[9].getAmount());
+                               board[9].setAmount(0);
+                           } if(positionreal+board[positionreal].getAmount()==5) {
+                               board[6].setAmount(board[8].getAmount());
+                               board[8].setAmount(0);
+                           }
+                         
+ 
+                }
+ 
+ 
+ 
+                }
+ 
+ 
+                if(positionreal+board[positionreal].getAmount() > 13 && positionreal+board[positionreal].getAmount() <20) {
+                      if(board[positionreal+board[positionreal-13].getAmount()].getAmount()==0) {
+ 
+                           if(positionreal+board[positionreal].getAmount()-13==0) {
+                               board[6].setAmount(board[12].getAmount());
+                               board[12].setAmount(0);
+                           }
+                            if(positionreal+board[positionreal].getAmount()-13==1) {
+                               board[6].setAmount(board[11].getAmount());
+                               board[11].setAmount(0);
+                           }
+                            if(positionreal+board[positionreal].getAmount()-13==2) {
+                               board[6].setAmount(board[10].getAmount());
+                               board[10].setAmount(0);
+                           } if(positionreal+board[positionreal].getAmount()-13==3) {
+                               board[6].setAmount(board[9].getAmount());
+                               board[9].setAmount(0);
+                           } if(positionreal+board[positionreal].getAmount()-13==4) {
+                               board[6].setAmount(board[9].getAmount());
+                               board[9].setAmount(0);
+                           } if(positionreal+board[positionreal].getAmount()-13==5) {
+                               board[6].setAmount(board[8].getAmount());
+                               board[8].setAmount(0);
+                           }
+                }
+              
+ 
+ 
+                if (positionreal > 5 || positionreal < 0) {
+                    System.out.println("INVALID MOVE PLAYER 1");
+                    System.exit(0);
+                }
+ 
+ 
+                if (positionreal + board[positionreal].getAmount() == 6 || positionreal + board[positionreal].getAmount() == 20) {
+ 
+                    System.out.println("Player 1 go again");
+ 
+ 
+                    GoAgainPlayer1(true);
+                 
+                }
+ 
+ 
+ 
+                for (int totally = 1; totally <= board[positionreal].getAmount(); totally++) {
+ 
+                    if (!(positionreal + board[positionreal].getAmount() == 6 || positionreal + board[positionreal].getAmount() == 20)) {
+                        GoAgainPlayer1(false);
+                        System.out.println("Why have i not gone here");
+                     System.out.print("  "+ hmm);
+ 
+                    }
+                    if (positionreal + totally == 14) {
+                        player1hasalot = true;
+ 
+                    }
+ 
+                    if (player1hasalot == true) {
+                        
+                        board[temporary].setAmount(board[temporary].getAmount() + 1);
+                         temporary = temporary + 1;
+ 
+ 
+                    }
+ 
+                    if (player1hasalot == false) {
+                        board[positionreal + totally].setAmount(board[positionreal + totally].getAmount() + 1);
+                    }
+ 
+ 
+                }
+ 
+ 
+ 
+ 
+ 
+                temporary=0;
+ 
+                board[positionreal].setAmount(0);
+ 
+ 
+ 
+             
+                drawBoard();
+                System.out.println("Ok I am gettign tired of this" + hmm);
+               if(hmm==false) {
+                   counter++;
+               }
+                break;
+            }
+ 
+ 
+ 
+        }
+        }else {
+            System.out.println("Alright player 2 it's your lovely turn");
+              if (counter % 2 != 0) {
+ 
+ 
+ 
+            while (counter % 2 != 0) {
+ 
+ 
+ 
+ 
+ 
+                if (positionreal <6 || positionreal >12 || positionreal==6) {
+                    System.out.println("INVALID MOVE PLAYER 2");
+                    System.exit(0);
+                }
+ 
+ 
+                if (positionreal + board[positionreal].getAmount() == 13 || positionreal + board[positionreal].getAmount() == 27) {
+ 
+                    System.out.println("Player 2 go again");
+ 
+ 
+                    GoAgainPlayer2(true);
+                    System.out.println("IS IT WORKING!?!?" + hmm2);
+ 
+                }
+ 
+ 
+ 
+                for (int totally = 1; totally <= board[positionreal].getAmount(); totally++) {
+ 
+                    if (!(positionreal + board[positionreal].getAmount() == 13 || positionreal + board[positionreal].getAmount() == 30)) {
+                        System.out.println("I SHOULDNT HAVE GONE HERE");
+                        GoAgainPlayer2(false);
+                     
+                    }
+                    if (positionreal + totally == 14) {
+                        player2hasalot = true;
+ 
+                    }
+ 
+                    if (player2hasalot == true) {
+                         
+                        board[temporary2].setAmount(board[temporary2].getAmount() + 1);
+                        temporary2 = temporary2 + 1;
+                    }
+ 
+                    if (player2hasalot == false) {
+                        board[positionreal + totally].setAmount(board[positionreal + totally].getAmount() + 1);
+                    }
+ 
+ 
+                }
+                temporary2=0;
+ 
+ 
+ 
+ 
+ 
+ 
+                board[positionreal].setAmount(0);
+ 
+ 
+ 
+                
+                drawBoard();
+                System.out.println("Ok I am gettign tired of this" + hmm2);
+                                    System.out.println("IS IT WORKING!?!?" + hmm2);
+ 
+               if(hmm2==false) {
+                   counter++;
+               }
+                break;
+            }
+ 
+            
+        }
+ 
+    }
+    }
+    public void drawBoard() {
+ 
+        System.out.println("");
+        System.out.print(board[12].getAmount() + " ");
+        System.out.print(board[11].getAmount() + " ");
+        System.out.print(board[10].getAmount() + " ");
+        System.out.print(board[9].getAmount() + " ");
+        System.out.print(board[8].getAmount() + " ");
+        System.out.print(board[7].getAmount() + " ");
+        System.out.println("");
+        System.out.print("|" + board[13].getAmount() + "|");
+        System.out.print("      ");
+        System.out.print("|" + board[6].getAmount() + "|");
+        System.out.println("");
+        System.out.print(board[0].getAmount() + " ");
+        System.out.print(board[1].getAmount() + " ");
+        System.out.print(board[2].getAmount() + " ");
+        System.out.print(board[3].getAmount() + " ");
+        System.out.print(board[4].getAmount() + " ");
+        System.out.print(board[5].getAmount() + " ");
+        System.out.println("");
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    }
+ 
+    public boolean isOver() {
+       if(board[0].getAmount()==0 && board[1].getAmount()==0 && board[2].getAmount()==0 && board[3].getAmount()==0 && board[4].getAmount()==0 && board[5].getAmount()==0) {
+            return true;
+        }
+       if(board[7].getAmount()==0 && board[8].getAmount()==0 && board[9].getAmount()==0 && board[10].getAmount()==0 && board[11].getAmount()==0 && board[12].getAmount()==0) { 
+               return true;
+           }
+        
+        return false;
+ 
+ 
+       
+    }
+     
+ 
+    public boolean GoAgainPlayer1(boolean j) {
+ 
+        if (j == true) {
+            hmm = true;
+            return j;
+        } else if (j==false) {
+            hmm=false;
+        }
+ 
+        return hmm;
+    }
+ 
+    public boolean GoAgainPlayer2(boolean j) {
+ 
+        if (j == true) {
+            hmm2 = true;
+            return j;
+        } else if (j==false) {
+            hmm2=false;
+        }
+        return hmm2;
+    }
+ 
+    public boolean hmz2() {
+        return hmm2;
+    }
+ 
+    public boolean hmz() {
+        return hmm;
+    }
+}
