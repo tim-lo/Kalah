@@ -1,0 +1,59 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+ 
+/**
+ *
+ * @author administrator
+ */
+public class ManCalaTree {
+ 
+    ManCalaTreeNode root;
+   /* int count=0;
+ 
+    public ManCalaTree() {
+        count = 0;
+        root=null;
+    }
+ 
+    public ManCalaTree(Object element) {
+    count=1;
+    root = new ManCalaTreeNode(element);
+    }
+ 
+ 
+ 
+    public ManCalaTree(Object element, ManCalaTree leftSubtree, ManCalaTree rightSubtree)
+    {
+    root= new ManCalaTreeNode(element);
+    count = 1;
+ 
+    if(leftSubtree!=null) {
+        count = count + leftSubtree.size();
+        root.left = leftSubtree.root;
+ 
+    }
+    else {
+        root.left = null;
+    }
+ 
+    if(rightSubtree!=null)
+    {
+        count = count +rightSubtree.size();
+        root.right=rightSubtree.root;
+    }
+    else {
+        root.right=null;
+    }
+    }
+ 
+ 
+ 
+ 
+ManCalaTreeNode root;
+ 
+ 
+    *
+    */
+}
