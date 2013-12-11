@@ -10,13 +10,17 @@ After 10000 random games have been run and the arraylists have been stored, when
 
 //Examples from literature of algorithm
 
-According to the “Modern Approach” literature Machine Learning is described as to adapt to new circumstances and to detect and extrapolate patters. Our algorithm is similar in the sense that we take existing data from the database of game states, detecting patterns and ranking them through with the implemented utility function and deciding the best choice of move depending on the same game state and highest utility function.
+According to the “Modern Approach” literature Machine Learning is described as to adapt to new circumstances and to detect and extrapolate patterns. Our algorithm is similar in the sense that we take existing data from the database of game states, detecting patterns and ranking them through with the implemented utility function and deciding the best choice of move depending on the same game state and highest utility function.
 
 //Expected behaviour of algorithm
-?
+
+As the algorithm is supervised and we have a pre-existing set of data for a large amount of possible moves from the start of the game, the game will play its moves intelligently, continuousley playing the best possible moves of Kalah. However it can be somewhat impossible to save everysingle possible state in the database and could be inefficient as a result as the algorithm would be searching through a greater number of arrays for the best possible move, thus we would expect the algorithm to win the majority of games but not all of them.
+
 
 //Actual behaviour of algorithm
 ?
 
 //What way did this differ from expected behaviour and why you think this was the case
 ?
+
+//reference page
