@@ -6,15 +6,19 @@ A new array is created named tmp which is a temporary array, it has 16 elements 
 We have created a database in the form of a text file which contains a large amount of possible game states, we collected the multiple game states by assigning player 1 and player 2 to random as described as before, we ran the random game generator for up to 10000 times. . Everysingle gamestate is stored in an arraylist because we don't know how long each sequence of  moves will be and it can vary everytime.
 The purpose of storing the utility value is that there could be more then one of the same state in the database, in this case the agent will compare the utility value of each of the similar states in the database and pick the highest utility value.
 
-After 10000 random games have been run and the arraylists have been stored, whenever the agent plays the game the database which is in form of a text file will be converted back into an arraylist containing an array of integers. Whenever the agent is going to make a move it will compare the current state of the game with everysingle state in the database which has just been converted into an arraylist
+After 10000 random games have been run and the arraylists have been stored, whenever the agent plays the game the database which is in form of a text file will be converted back into an arraylist containing an array of integers. Whenever the agent is going to make a move it will compare the current state of the game with everysingle state in the database which has just been converted into an arraylist.
 
 //Examples from literature of algorithm
 
 According to the “Modern Approach” literature Machine Learning is described as to adapt to new circumstances and to detect and extrapolate patterns. Our algorithm is similar in the sense that we take existing data from the database of game states, detecting patterns and ranking them through with the implemented utility function and deciding the best choice of move depending on the same game state and highest utility function.
 
+We have also implemented a version of minimax to make an optimum decision in the case
+
+
+
 //Expected behaviour of algorithm
 
-As the algorithm is supervised and we have a pre-existing set of data for a large amount of possible moves from the start of the game, the game will play its moves intelligently, continuousley playing the best possible moves of Kalah. However it can be somewhat impossible to save everysingle possible state in the database and could be inefficient as a result as the algorithm would be searching through a greater number of arrays for the best possible move, thus we would expect the algorithm to win the majority of games but not all of them.
+As the algorithm is supervised and we have a pre-existing set of data for a large amount of possible moves from the start of the game, the game will play its moves intelligently, continuousley playing the best possible moves of Kalah. However it can be somewhat impossible to save everysingle possible state in the database and could be inefficient as a result as the algorithm would be searching through a greater number of arrays for the best possible move, thus we would expect the algorithm to win the majority of games but not all of them. However in the case if the database does not contain the specific state of moves to perform the next move, the decision will be made by minimax.
 
 
 //Actual behaviour of algorithm
@@ -24,3 +28,5 @@ As the algorithm is supervised and we have a pre-existing set of data for a larg
 ?
 
 //reference page
+
+example : http://psychology.about.com/od/apastyle/ig/APA-Format-Examples/references.htm
