@@ -7,3 +7,11 @@ We have created a database in the form of a text file which contains a large amo
 The purpose of storing the utility value is that there could be more then one of the same state in the database, in this case the agent will compare the utility value of each of the similar states in the database and pick the highest utility value.
 
 After 10000 random games have been run and the arraylists have been stored, whenever the agent plays the game the database which is in form of a text file will be converted back into an arraylist containing an array of integers. Whenever the agent is going to make a move it will compare the current state of the game with everysingle state in the database which has just been converted into an arraylist
+
+//Examples from literature of algorithm
+
+//Expected behaviour of algorithm
+
+//Actual behaviour of algorithm
+
+//What way did this differ from expected behaviour and why you think this was the case
