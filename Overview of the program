@@ -29,3 +29,17 @@ In the AI class a decision making algorithm for the game has been implemented, w
 Players 1 and 2 will both have the Minimax descision algorithm implemented, and used for both learning algorithms.
 
 // Results of 1000 games.
+
+
+
+
+
+
+
+
+
+
+//-------REPORT - WHAT ARE THE EXPECTATIONS FOR PLAYER 2
+
+//What are the expectations
+This learning algorithm is expected to start off slowly due to the fact that this algorithm starts off with no pre-existing knowledge of any strategies or how to a game of Kalah. However it should progressivley become a stronger candidate of winning a game of Kalah against any given opponent. Therefore it will start to win more and more games, as it is being reinforced with more data (winning moves), that it stores after every winning move by Player 2. This will mean that it is more equipped in a greater amount of situations to make a better move, or the best move.
