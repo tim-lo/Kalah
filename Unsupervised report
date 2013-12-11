@@ -5,4 +5,4 @@ Unsupervised Learning
 The learning algorithm being used for the the kalah game is one we have made ourselves, the algorithm is an unsupervised learning algorithm, this means that the A.I wont explicitly be told how to go win games and will learn as it goes.
 
 In the algorithm the A.I will start with nothing, as It goes through every game the winning moves are recorded.
-A database is used to store the winning moves, the algorithm will go through each winning move and attempt to apply any of the potential moves to the current state.
+A database is used to store the winning moves, the algorithm will go through each winning move and attempt to apply any of the potential moves to the current state. The algorithm will be basing its actions on previous rewards and not necessarilly learning per game.
