@@ -10,8 +10,13 @@ After 10000 random games have been run and the arraylists have been stored, when
 
 //Examples from literature of algorithm
 
+According to the “Modern Approach” literature Machine Learning is described as to adapt to new circumstances and to detect and extrapolate patters. Our algorithm is similar in the sense that we take existing data from the database of game states, detecting patterns and ranking them through with the implemented utility function and deciding the best choice of move depending on the same game state and highest utility function.
+
 //Expected behaviour of algorithm
+?
 
 //Actual behaviour of algorithm
+?
 
 //What way did this differ from expected behaviour and why you think this was the case
+?
