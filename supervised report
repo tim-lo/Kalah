@@ -1,0 +1,9 @@
+Player 1 (Supervised Learning)
+
+For player 1 we have decided to create our own supervised learning algorithm. The algorithm uses a random generator to create a random number. The random number is based on the houses that have seeds placed in them, thus the player cannot pick an empty move e.g an empty house.
+The kalah board is saved as an array named board the array contains 14 elements, the 7th element being the player one store (index 6) and the 14th element is the player 2 store (index 13).
+A new array is created named tmp which is a temporary array, it has 16 elements within it. The array between index 0 and index 13 is a clone of the original board. Index 14 contains the house which the player is going to choose for the next move and index 15 contains the utility value of the current board, this is measured by the differences of the 2 players scores.
+We have created a database in the form of a text file which contains a large amount of possible game states, we collected the multiple game states by assigning player 1 and player 2 to random as described as before, we ran the random game generator for up to 10000 times. . Everysingle gamestate is stored in an arraylist because we don't know how long each sequence of  moves will be and it can vary everytime.
+The purpose of storing the utility value is that there could be more then one of the same state in the database, in this case the agent will compare the utility value of each of the similar states in the database and pick the highest utility value.
+
+After 10000 random games have been run and the arraylists have been stored, whenever the agent plays the game the database which is in form of a text file will be converted back into an arraylist containing an array of integers. Whenever the agent is going to make a move it will compare the current state of the game with everysingle state in the database which has just been converted into an arraylist
