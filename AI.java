@@ -1,16 +1,97 @@
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
 
 public class AI {
 
-    private boolean   maximising;
-    private boolean   turn;
-    private Board     board;
+    private boolean maximising;
+    private boolean turn;
+    //private Board board;
+
+    private BufferedReader inputStream;
+
+    private Scanner s;
+
+    private ArrayList<int[]> moveDB;
+
     private final int depthThreshold = 3;
 
-    public AI(boolean max, Board b) {
+    public AI(boolean max, Board b) throws IOException {
 
-        this.maximising = max;
-        this.board      = b;
+        this.maximising  = max;
+        //this.board     = b;
+        this.moveDB      = new ArrayList<int[]>();
+        this.inputStream = null;
+        this.s           = null;
+
+        ArrayList<String> stringAL = new ArrayList<String>();
+
+        try {
+
+            this.s = new Scanner(new BufferedReader(new FileReader("data.txt")));
+
+            while (s.hasNext()) {
+
+                stringAL.add(s.nextLine());
+
+            }
+
+        } finally {
+
+            if (s != null) {
+
+                s.close();
+
+            }
+
+        }
+
+        for (String s : stringAL) {
+
+            String[] stringA;
+            int[] intA = new int[s.length()];
+
+            stringA = s.split("");
+
+            for (int i = 0; i < s.length(); i++) {
+
+                try {
+
+                    intA[i] = Integer.parseInt(stringA[i].trim());
+
+                } catch (Exception e) {
+
+                    System.out.println(e);
+
+                }
+
+            }
+
+            this.moveDB.add(intA);
+
+        }
+
+        for (int[] iA : this.moveDB) {
+
+            for (int i : iA) {
+
+                System.out.print(i);
+
+            }
+
+            System.out.println();
+
+        }
+
+        /*
+        for (String s : tmpAL) {
+
+            System.out.println(s);
+
+        }
+        */
 
     }
 
@@ -101,8 +182,9 @@ public class AI {
     private int getRating(boolean max, Board b, int m) {
 
         int difference;
+        Board tmpBoard = b;
 
-        b.move(max, m);
+        tmpBoard.move(max, m);
 
         if (max == true) {
 
@@ -113,6 +195,18 @@ public class AI {
             difference = b.getBeans(13) - b.getBeans(6);
 
         }
+
+        /*/////////////////////////////////
+
+        int[] currentState = new int[15];
+
+        for (int i = 0; i < b.getIntArray().length; i++) {
+
+            currentState[i] = b.getIntArray()[i];
+
+        }
+
+        /////////////////////////////////*/
 
         return difference;
 
