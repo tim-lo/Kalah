@@ -3,29 +3,35 @@ Player 2 Report
 Reinforcement Learning
 
 
-The learning algorithm for Player 2 is reinforcement learning. This algorithm has no other source files which it refers at the start. Therefore it will gradually gain more knowledge of the situations and will know which move would be best to take given the situation.
+The learning algorithm for Player 2 is reinforcement learning. This algorithm has no other source files which it refers to at the start. Therefore it will gradually gain more data of the situations and will know which move would be best to take given the situation.
 
 The algorithm will start with no knowledge of any strategy at all of playing the game Kalah. It will have to find strategies using the rules from the game, Kalah, and playing the game multiple times. 
 By playing the game multiple times and trying different strategies the learning algorithm will store the winning moves as it goes along through each and every game – and will therefore become more difficult to defeat because of the stored values from previous games.
 The winning moves from the games get recorded in a database. The minimax will return a utility value, the utility value is the rating of the move – which is determined by the difference between the two stores. The utility value from the minimax will then be compared with a utility value from the winning moves in the database. Once compared the winning move with highest utility value is taken and the game boards are compared to ensure the move is possible.
+However instead of minimax, alphabeta pruning could have been implemented to improve the time and space complexity. As it uses minimax, it returns the same move as minimax would, but prunes away branches that cannot possibly influence the final decision (Stuart J. Russell and Paul Norvig, 2010)
 
-This learning algorithm is inspired by the Q-Learning algorithm which is also a reinforcement learning algorithm. This is similar to the reinforcement learning algorithm as they both have a state and action to produce a result.
+This learning algorithm is inspired by the Q-Learning algorithm which is also a reinforcement learning algorithm. This is similar to the reinforcement learning algorithm as they both have a state and action to produce a result, which is      Q: S x A    (http://en.wikipedia.org/wiki/Q-learning).
 The Q-Learning algorithm is an off policy learner which means that it learns the value of the optimal policy independently of the agent's actions (David Poole and Alan Mackworth, 2010). Whereas this reinforcement learning algorithm is more of an on-policy learner which learns the value of the policy being carried out by the agent, including the exploration steps (David Poole and Alan Mackworth, 2010). This is because the minimax algorithm explores ahead, and knows the policy of the agent. 
 
 This learning algorithm is expected to start off slowly due to the fact that this algorithm begins the initial game with no pre-existing knowledge of any strategies or how to win a game of Kalah. However it should progressively become a stronger candidate of defeating its opponents with more experience (more games). Therefore it will start to win more and more games, as it is being reinforced with more data (winning moves), that it stores after every winning move by Player 2. This will mean that it is more equipped in a greater amount of situations to make a better move, or the best move.
 
 
-//Was the expectations of the algorithm the outcome
+//Is the behaviour of the algorithm expected.
 
 //How did it differ from expectations
 Reference
 
 (1)	http://en.wikipedia.org/wiki/Q-learning
-The algorithm therefore has a function which calculates the Quality of a state-action combination:
-
-Before learning has started, Q returns an (arbitrary) fixed value, chosen by the designer. Then, each time the agent selects an action, and observes a reward and a new state that both may depend on both the previous state and the selected action. The core of the algorithm is a simple value iteration update. It assumes the old value and makes a correction based on the new information.
+Q: S x A    
+Each time the agent selects an action, and observes a reward and a new state that both may depend on both the previous state and the selected action. It assumes the old value and makes a correction based on the new information.
 
 (2)	http://artint.info/html/ArtInt_268.html - David Poole and Alan Mackworth, 2010
 An off-policy learner learns the value of the optimal policy independently of the agent's actions. Q-learning is an off-policy learner. An on-policy learner learns the value of the policy being carried out by the agent, including the exploration steps.
+
+(3)	Artificial Intelligence: A Modern Approach (3rd Edition)  (Stuart J. Russell and Paul Norvig), 2010
+P.167 – “it returns the same move as minimax would, but prunes away branches that
+cannot possibly influence the final decision.”
+
+(4)	
 
 
