@@ -1,3 +1,4 @@
+
 Player 2 Report
 Reinforcement Learning
 
@@ -11,7 +12,7 @@ The winning moves from the games get recorded in a database. The minimax will re
 This learning algorithm is inspired by the Q-Learning algorithm which is also a reinforcement learning algorithm. This is similar to the reinforcement learning algorithm as they both have a state and action to produce a result.
 The Q-Learning algorithm is an off policy learner which means that it learns the value of the optimal policy independently of the agent's actions (David Poole and Alan Mackworth, 2010). Whereas this reinforcement learning algorithm is more of an on-policy learner which learns the value of the policy being carried out by the agent, including the exploration steps (David Poole and Alan Mackworth, 2010). This is because the minimax algorithm explores ahead, and knows the policy of the agent. 
 
-This learning algorithm is expected to start off slowly due to the fact that this algorithm starts off with no pre-existing knowledge of any strategies or how to a game of Kalah. However it should progressively become a stronger candidate of winning a game of Kalah against any given opponent. Therefore it will start to win more and more games, as it is being reinforced with more data (winning moves), that it stores after every winning move by Player 2. This will mean that it is more equipped in a greater amount of situations to make a better move, or the best move.
+This learning algorithm is expected to start off slowly due to the fact that this algorithm begins the initial game with no pre-existing knowledge of any strategies or how to win a game of Kalah. However it should progressively become a stronger candidate of defeating its opponents with more experience (more games). Therefore it will start to win more and more games, as it is being reinforced with more data (winning moves), that it stores after every winning move by Player 2. This will mean that it is more equipped in a greater amount of situations to make a better move, or the best move.
 
 
 //Was the expectations of the algorithm the outcome
