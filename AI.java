@@ -9,89 +9,30 @@ public class AI {
     private boolean maximising;
     private boolean turn;
     //private Board board;
+    private int     chosen;
+    private int     target;
 
-    private BufferedReader inputStream;
-
-    private Scanner s;
-
+    private String fileName;
     private ArrayList<int[]> moveDB;
+    private final int depthThreshold = 4;
 
-    private final int depthThreshold = 3;
+    public AI(boolean max, Board b) {
 
-    public AI(boolean max, Board b) throws IOException {
+        this.maximising = max;
+        //this.board = b;
+        this.moveDB = new ArrayList<int[]>();
 
-        this.maximising  = max;
-        //this.board     = b;
-        this.moveDB      = new ArrayList<int[]>();
-        this.inputStream = null;
-        this.s           = null;
-
-        ArrayList<String> stringAL = new ArrayList<String>();
+        this.fileName = "C:\\Users\\Tom\\IdeaProjects\\Kalah Final\\src\\data.txt";
 
         try {
 
-            this.s = new Scanner(new BufferedReader(new FileReader("data.txt")));
+            readDataFile();
 
-            while (s.hasNext()) {
+        } catch (IOException e) {
 
-                stringAL.add(s.nextLine());
-
-            }
-
-        } finally {
-
-            if (s != null) {
-
-                s.close();
-
-            }
+            System.out.println(e);
 
         }
-
-        for (String s : stringAL) {
-
-            String[] stringA;
-            int[] intA = new int[s.length()];
-
-            stringA = s.split("");
-
-            for (int i = 0; i < s.length(); i++) {
-
-                try {
-
-                    intA[i] = Integer.parseInt(stringA[i].trim());
-
-                } catch (Exception e) {
-
-                    System.out.println(e);
-
-                }
-
-            }
-
-            this.moveDB.add(intA);
-
-        }
-
-        for (int[] iA : this.moveDB) {
-
-            for (int i : iA) {
-
-                System.out.print(i);
-
-            }
-
-            System.out.println();
-
-        }
-
-        /*
-        for (String s : tmpAL) {
-
-            System.out.println(s);
-
-        }
-        */
 
     }
 
@@ -156,18 +97,20 @@ public class AI {
 
                 if (tmpBestRating > bestRating) {
 
-                    bestMove = tmpBestMove;
+                    bestRating = tmpBestRating;
+                    bestMove   = tmpBestMove;
 
                 }
 
             } else {
 
-                tmpBestMove   = m;
+                tmpBestMove = m;
                 tmpBestRating = minimax(m, this.depthThreshold, b, false);
 
                 if (tmpBestRating < bestRating) {
 
-                    bestMove = tmpBestMove;
+                    bestRating = tmpBestRating;
+                    bestMove   = tmpBestMove;
 
                 }
 
@@ -175,11 +118,99 @@ public class AI {
 
         }
 
+        /////////////////////////////////
+
+        int[] currentState = new int[14];
+        boolean matchFound = true;
+        int     matchID    = 0;
+
+        for (int i = 0; i < b.getBoard().length; i++) {
+
+            currentState[i] = b.getBoard()[i];
+
+        }
+
+        for (int i = 0; i < this.moveDB.size(); i++) {
+
+            for (int j = 0; j < currentState.length; j++) {
+
+                try {
+
+                    if (currentState[j] != this.moveDB.get(i + 1)[j]) {
+
+                        matchFound = false;
+
+                    }
+
+                } catch (Exception e) {
+
+                    //System.out.println(e);
+
+                }
+
+            }
+
+            if (matchFound) {
+
+                matchID = i + 1;
+
+            }
+
+        }
+
+        if (matchFound) {
+
+            if (this.isMaximising()) {
+
+                if (bestRating <= this.moveDB.get(matchID)[15]) {
+
+                    bestMove = this.moveDB.get(matchID)[14];
+
+                }
+
+            } else {
+
+                if (bestRating >= this.moveDB.get(matchID)[15]) {
+
+                    bestMove = this.moveDB.get(matchID)[14];
+
+                }
+
+            }
+
+        }
+
+        /////////////////////////////////
+
         return bestMove;
 
     }
 
-    private int getRating(boolean max, Board b, int m) {
+    public int getChosen() {
+
+        return this.chosen;
+
+    }
+
+    public void setChosen(int i) {
+
+        this.chosen = i;
+
+    }
+
+    public int getTarget() {
+
+        return this.target;
+
+    }
+
+    public void setTarget(int i) {
+
+        this.target = i;
+
+    }
+
+    public int getRating(boolean max, Board b, int m) {
 
         int difference;
         Board tmpBoard = b;
@@ -195,18 +226,6 @@ public class AI {
             difference = b.getBeans(13) - b.getBeans(6);
 
         }
-
-        /*/////////////////////////////////
-
-        int[] currentState = new int[15];
-
-        for (int i = 0; i < b.getIntArray().length; i++) {
-
-            currentState[i] = b.getIntArray()[i];
-
-        }
-
-        /////////////////////////////////*/
 
         return difference;
 
@@ -330,6 +349,72 @@ public class AI {
         }
 
         return a;
+
+    }
+
+    private void readDataFile() throws IOException {
+
+        ArrayList<String> stringAL = new ArrayList<String>();
+        Scanner s = null;
+
+        try {
+
+            s = new Scanner(new BufferedReader(new FileReader(this.fileName)));
+
+            while (s.hasNext()) {
+
+                stringAL.add(s.nextLine());
+
+            }
+
+        } finally {
+
+            if (s != null) {
+
+                s.close();
+
+            }
+
+        }
+
+        for (String str : stringAL) {
+
+            String[] strArray = str.split(",");
+            int[] intArray = new int[strArray.length];
+
+            for (int i = 0; i < strArray.length; i++) {
+
+                intArray[i] = Integer.parseInt(strArray[i]);
+
+            }
+
+            this.moveDB.add(intArray);
+
+        }
+
+        /*
+
+        for (int[] iA : this.moveDB) {
+
+            for (int i : iA) {
+
+                if (i < 10 && i >= 0) {
+
+                    System.out.print(i + "  ");
+
+                } else {
+
+                    System.out.print(i + " ");
+
+                }
+
+            }
+
+            System.out.println();
+
+        }
+
+        */
 
     }
 
