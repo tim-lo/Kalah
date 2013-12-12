@@ -10,11 +10,11 @@ public class Board {
 
             if (i == 6 || i == 13) {     //Houses Nos.6 and 13 are respectively the stores of player 1 and player 2
 
-                board[i] = 0;            //Zero beans for the stores
+                this.board[i] = 0;       //Zero beans for the stores
 
             } else {
 
-                board[i] = 4;            //Four beans for each of the houses
+                this.board[i] = 4;       //Four beans for each of the houses
 
             }
 
@@ -41,7 +41,7 @@ public class Board {
 
     }
 
-    public int[] getIntArray() {
+    public int[] getBoard() {
 
         return this.board;
 
@@ -49,11 +49,11 @@ public class Board {
 
     public void setBoard(Board b) {
 
-        this.board = b.getIntArray();
+        this.board = b.getBoard();
 
     }
 
-    public void setIntArray(int[] a) {
+    public void setBoard(int[] a) {
 
         this.board = a;
 
@@ -140,31 +140,23 @@ public class Board {
 
     public void printBoard() {
 
-        System.out.println(".-------------------------------------------------.");
-        System.out.println("| .---. .---. .---. .---. .---. .---. .---. .---. |");
-        System.out.print("| |   | | ");
+        for (int i = (this.board.length - 1); i > 6; i--) {
 
-        for (int i = 12; i > 6; i--) {
-
-            System.out.print(this.board[i] + " | | ");
+            System.out.print(this.board[i] + " ");
 
         }
 
-        System.out.print("  | |");
-
         System.out.println();
-
-        System.out.print("| | " + this.board[13] + " | | ");
+        System.out.print("  ");
 
         for (int i = 0; i < (this.board.length / 2); i++) {
 
-            System.out.print(this.board[i] + " | | ");
+            System.out.print(this.board[i] + " ");
 
         }
 
         System.out.println();
-
-        System.out.println("| '---' '---' '---' '---' '---' '---' '---' '---' |");
+        System.out.println();
 
     }
 
