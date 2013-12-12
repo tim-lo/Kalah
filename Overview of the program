@@ -42,6 +42,8 @@ Random
 449
 --------------------------
 
+Above shows the results from a 1000 games when each algorithm is played against each other. Some of the results are unexpected, especially the  Reinforcement versus Supervised – where the Reinforcement has a 100% win ratio.
+
 
 
 
