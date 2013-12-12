@@ -3,43 +3,46 @@ Introduction to AI
 End of Term Exercise
 
 1. Overview of the program
+
+The purpose of the program is to create the board game Kalah. We have decided to implement this using the Java programming language.
+The Kalah program is made up of a (Kalah.java) Main class, (AI.java) AI class and the (Board.java) Board class.
+
+The main class deals with the core game, it has 4 data fields, a Boolean named 'gameover' which controls when the game finishes, an integer array named 'board' which holds the houses and stores 2 integer data fields named 'beanSumP1' and 'beanSumP2' which counts the number of beans in the houses of each respective player. 
+Boolean 'gameover' is initially set to false, the 'board' array consists of 14 elements, 12 for the houses and 2 for each player’s store. The sum of the players houses are intially set to 0, a loop is used to go through the array filling each house with 4 beans in each and leaving the stores empty for both players.
+Once the game has been initialized, the 'Main Loop' is able to start. The turn has been set to 'true' for player 1, so they are able to start the game – while it is not the end of the game. This loops through moves for player one and player two simultaneously,  when a player selects a house an IF statement checks to see if the move is valid. This is done by checking if the house selected is on their side and whether there are beans in the house. As soon as this is validated it checks to see whether the player will get bonus beans for their move, or if the player will get a bonus move. If a player chooses an invalid house/move the player must take their move again.
+Once the game has reached an end the main loop stops. The stores of the two players are then compared with each other to see which player has won the game of Kalah.
+There are other methods which get used within the Main loop of the game which are:- 
+→ move – This carries out each players move by deploying the beans to their respected 	       houses and store. It also determines whether the player will be rewarded with 	       bonus beans or a bonus move.
+→ fillBeans – This fills the respected houses with a single bean in each house.
+→ checkOppositeHouse – This checks to see if the opposite house is filled or not.
+→ bonusBeans – This rewards the player if the last bean lands in an empty house 			        opposite a filled house.
+→ checkAllEmptyHouses – This checks the houses to see if they are empy to determine 				  the end of the game
+ → endGameMove – When game over this adds up all the beans still in play and adds it to 			   their repective store.
+→ printBoard – This prints a game board, so the player can see the current state of the 		    game
+
+Minimax is useful as it minimizes the maximum amount of losses, so then it can look ahead to a given depth to choose which move is best to take. This decision making algorithm is generally used in two player games, where moves by each player are taken simultaneously. Minimax analyses the situation to produce a better outcome – so the greater depth the better it will be however it be also become exponentially bigger meaning it will progressively become slower. 
+
+
+Below shows a number of wins for each agent. The agents are Supervised Learning algorithm,  Reinforcement Learning algorithm and the Random generator player. These result are for when each algorithm is played against each other.
+
+
+Supervised
+Reinforcement
+Random
+Supervised
 --------------------------
-The purpose of the program is to create the board game kalah. We have decided to implement this using the Java programming language.
-
-//Game Structure
-
-The kalah program is made up of a player class, main method and A.I class.
-
-The player class is used to represent the 2 players, it has 3 data fields which consist of a Boolean named 'turn' which determines the turn of a player , an integer for 'chosen' position and an integer for 'target' position on the board. The constructor initializes the data fields, 'turn' is set to false 'chosen' and 'target' are set to 0. There are get and set methods for each data field.
-
-The main class deals with the core game, it has 4 data fields, a Boolean named 'gameover' which controls when the game finishes, an integer array named 'board' which holds the houses and stores and 2 integer data fields named 'beanSumP1' and 'beanSumP2' which counts the number of beans in the houses of each respective player. Boolean 'gameover' is inittially set to false, the 'board' array consists of 14 elements, 12 for the houses and 2 for each players store. The sum of the players houses are set to 0, a loop is used to go through the array filling each house with 4 and leaving the stores empty.
-
-//The turn for player 1 and player 2 occur in a loop, turn will be set to true
-//chosen gets set to persons choice
-//If the chosen is more then 5 or less than 0 or empty error produced invalid house chosen reset to 0
-//valid move target set to chosen + number of beans and plays move
-//checks for if all houses are empty if true then gameover is not then 
 
 
-//How players make decisions
+Reinforcement
 
-//The A.I class deals with how players make decisions in the game. We have implemented a minimax algorithm with alpha beta pruning. The class finds the possible moves available and deducts the best move. We have a utility function determined by the difference of each stores at the end of each possible move
-//About the AI class
-In the AI class a decision making algorithm for the game has been implemented, which is Minimax. Minimax is useful as it minimizes the maximum amount of losses, so then it can look ahead to a given depth to choose which move is best to take. This decision making algorithm is generally used in two player games, where moves by each player are taken simultaneously. 
-Players 1 and 2 will both have the Minimax descision algorithm implemented, and used for both learning algorithms.
+--------------------------
+523
+Random
 
-// Results of 1000 games.
+449
+--------------------------
 
 
 
 
 
-
-
-
-
-
-//-------REPORT - WHAT ARE THE EXPECTATIONS FOR PLAYER 2
-
-//What are the expectations
-This learning algorithm is expected to start off slowly due to the fact that this algorithm starts off with no pre-existing knowledge of any strategies or how to a game of Kalah. However it should progressivley become a stronger candidate of winning a game of Kalah against any given opponent. Therefore it will start to win more and more games, as it is being reinforced with more data (winning moves), that it stores after every winning move by Player 2. This will mean that it is more equipped in a greater amount of situations to make a better move, or the best move.
